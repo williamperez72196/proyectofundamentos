@@ -1,0 +1,65 @@
+<%- include ../layouts/cabecera.ejs  %>
+    <br/>
+    
+
+    <form method="post" action="/herramientas" enctype="multipart/form-data">
+
+    <a href="/herramientas/crear" class="btn btn-primary"  type="button">Crear una nueva Herramienta</a>
+    <br/>
+    <br/>
+
+    <table class="table table-light">
+      <thead class="thead-light">
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% for( let herramienta = 0; herramienta < herramientas.length; herramienta++ ) { %>
+
+          <tr>
+            <td> <%=herramientas[herramienta].id%> </td>
+
+            <td> <%=herramientas[herramienta].nombre%> </td>
+
+            <td>
+              <img class="img-thumbnail" width="100" src="images/<%=herramientas[herramienta].imagen%>" alt="">
+           </td>
+
+            <td>
+              <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                
+                <form class="form-inline" method="get" action="/herramientas/editar/<%=herramientas[herramienta].id%>">
+
+                  <button class="btn btn-warning" type="submit">Editar</button>
+                  
+                </form>
+              </div>
+              |
+
+              <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                
+                <form class="form-inline" method="post" action="/herramientas/eliminar/<%=herramientas[herramienta].id%>">
+
+                  <button class="btn btn-danger" type="submit">Borrar</button>
+                  
+                </form>
+              </div>
+
+                
+            </td>
+          </tr>
+
+        <% } %>
+
+        
+      </tbody>
+      </table>
+ 
+<%- include ../layouts/pie.ejs  %>
+  
+

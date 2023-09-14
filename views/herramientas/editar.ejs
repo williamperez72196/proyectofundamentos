@@ -1,0 +1,21 @@
+<%- include ../layouts/cabecera.ejs  %>
+
+<form method="post" action="/" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="my-input"> Nombre </label>
+        <input id="my-input" class="form-control" type="text" name="nombre">
+    </div>
+
+    <di class="form-group">
+      <label for="my-input">Imagen</label>
+
+     <img class="img-thumbnail" src="../../images/<%-herramientas.imagen%>" width="100" alt="">
+
+      <input id="my-input" class="form-control-file" type="file" name="archivo">
+  </div>
+
+   <button type="submit" class="btn btn-primary">Guardar</button>
+      
+</form>
+<%- include ../layouts/pie.ejs  %>
